@@ -10,14 +10,14 @@ class People
   field :height, type: String
   field :mass, type: String
   field :skin_color, type: String
-  field :homeworld, type: String
-  # field :species, type: String
-  # field :starships, type: String
-  # field :vehicles, type: String
   field :url, type: String
-
-  has_and_belongs_to_many :films, class_name: 'Film', inverse_of: :characters
 
   validates :name, uniqueness: true
   validates :url, uniqueness: true
+
+  has_and_belongs_to_many :films, class_name: 'Film', inverse_of: :characters
+  has_and_belongs_to_many :species, class_name: 'Species', inverse_of: :people
+  has_and_belongs_to_many :starships, class_name: 'Starship', inverse_of: :pilots
+  has_and_belongs_to_many :vehicles, class_name: 'Vehicle', inverse_of: :pilots
+  belongs_to :homeworld, class_name: 'Planet', inverse_of: :residents, optional: true
 end
