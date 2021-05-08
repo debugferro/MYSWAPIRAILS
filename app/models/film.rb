@@ -18,4 +18,32 @@ class Film
   has_and_belongs_to_many :starships, class_name: 'Starship', inverse_of: :films
   has_and_belongs_to_many :vehicles, class_name: 'Vehicle', inverse_of: :films
   has_and_belongs_to_many :planets, class_name: 'Planet', inverse_of: :films
+
+  def self.map_data(films)
+    films.map(&:map_info)
+  end
+
+  def map_info
+    {
+      title: title,
+      id: id.to_s,
+      episode_id: episode_id,
+      opening_crawl: opening_crawl,
+      director: director,
+      producer: producer,
+      release_date: release_date,
+      characters: characters.map(&:slim_map_info),
+      species: species.map(&:slim_map_info),
+      starships: starships.map(&:slim_map_info),
+      vehicles: vehicles.map(&:slim_map_info),
+      planets: planets.map(&:slim_map_info),
+    }
+  end
+
+  def slim_map_info
+    {
+      title: title,
+      id: id.to_s
+    }
+  end
 end
