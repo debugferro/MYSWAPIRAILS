@@ -1,0 +1,55 @@
+.navContainer {
+  display: flex;
+  position: fixed;
+  top: 0;
+  background-color: transparent;
+  width: 100%;
+  height: 3.6rem;
+  border-bottom: 3px solid black;
+}
+
+.content {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.content > div {
+  align-self: center;
+}
+
+@import url(//db.onlinewebfonts.com/c/0c724f6aa457310440cf8949c615cbd7?family=Star+Jedi);
+@font-face {
+  font-family: "Star Jedi";
+  src: url("//db.onlinewebfonts.com/t/0c724f6aa457310440cf8949c615cbd7.eot");
+  src: url("//db.onlinewebfonts.com/t/0c724f6aa457310440cf8949c615cbd7.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/0c724f6aa457310440cf8949c615cbd7.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/0c724f6aa457310440cf8949c615cbd7.woff") format("woff"), url("//db.onlinewebfonts.com/t/0c724f6aa457310440cf8949c615cbd7.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/0c724f6aa457310440cf8949c615cbd7.svg#Star Jedi") format("svg");
+}
+
+.content > div > a > h1 {
+  text-shadow: 3px 1px 0 var(--yellow);
+  text-transform: uppercase;
+  letter-spacing: 5.9px;
+  font-family: 'Star Jedi';
+  color: black;
+}
+
+.links > a {
+  display: inline-block;
+  font-weight: bold;
+  text-transform: uppercase;
+  align-self: center;
+  margin: 1rem;
+  transition: 0.3s;
+}
+
+.links > a:hover {
+  transform: scale(1.1);
+  text-shadow: 2px 1px 0 var(--yellow-honey);
+}
+
+
+@media(max-width: 720px) {
+  .links {
+    display: none;
+  }
+}
