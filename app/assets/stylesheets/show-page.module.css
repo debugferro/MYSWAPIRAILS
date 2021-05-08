@@ -1,0 +1,24 @@
+.showCard {
+  background-color: #b2b2b2;
+  margin: 0 auto;
+  margin-top: 5rem;
+  width: 50rem;
+  box-shadow: 1px 1px 15px 11px #202020 inset;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.showCard > ul {
+  list-style-type: none;
+  display: flex;
+  flex-flow: nowrap;
+  align-content: space-evenly;
+}
+
+.showCard > ul > li {
+  white-space: nowrap;
+  margin-left: 0.1rem;
+  margin-right: 0.2rem;
+}

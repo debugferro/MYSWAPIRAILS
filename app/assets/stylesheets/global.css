@@ -1,0 +1,71 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+html {
+  font-size: 17px;
+}
+
+:root {
+  --whiteshow: #f8f6f6;
+  --pink: #F4AFAB;
+  --blue: #81ADC8;
+  --dark-blue: #3E517A;
+  --yellow: #FFE81F;
+  --red: #d21c1c;
+  --background: #FCF4F4;
+  --black-card: #3c3838;
+  --shadow:  #313131;
+  --font-color: #313131;
+}
+
+@media(max-width: 1080px) {
+  html {
+    font-size: 100%;
+  }
+}
+
+@media(max-width: 720px) {
+  html {
+    font-size: 87.5%;
+  }
+}
+
+@media(max-width: 480px) {
+  /* html {
+    font-size: 81.5%;
+  } */
+  .Toastify__toast-container--top-right {
+    width: 100%
+  }
+}
+
+body {
+  /* background: linear-gradient(145deg, rgba(247,179,43,1) 0%, rgba(247,179,43,1) 26%, rgba(218,48,83,1) 88%, rgba(218,48,83,1) 100%); */
+  background-image: url('/images/background.jpg');
+  margin: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: var(--font-color);
+}
+
+body, input, textarea, button {
+  font: 400 1rem 'Montserrat', sans-serif;
+}
+
+button, input[type="submit"] {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  height: 100%;
+}
