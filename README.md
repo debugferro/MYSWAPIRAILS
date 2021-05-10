@@ -1,24 +1,24 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Faça o clone do código:
 
-Things you may want to cover:
+    $ git clone git@github.com:debugferro/MYSWAPIRAILS.git
 
-* Ruby version
+Execute:
 
-* System dependencies
+    $ bundle install
+    $ yarn install
+    
+Caso queira popular/atualizar a aplicação com dados da SWAPI, execute a rake task:
 
-* Configuration
+    $ rake myswapigem:populate
+    
+Para executar o servidor:
 
-* Database creation
+    $ rails s
+    $ ./bin/webpack-dev-server
 
-* Database initialization
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
-* ...
