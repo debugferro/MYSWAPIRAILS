@@ -30,28 +30,38 @@ function PlanetPage() {
     <div className={styles.showCard}>
       { isLoading ? <Loader type="ThreeDots" color="#000000" height={80} width={80} /> :
         (<>
-          <h1>{data.name}</h1>
-          <p>Population: {data.population}</p>
-          <p>Climate: {data.climate}</p>
-          <p>Terrain: {data.terrain}</p>
-          <p>Surface Water: {data.surface_water}</p>
-          <p>Diameter: {data.diameter}</p>
-          <p>Rotation Period: {data.rotation_period}</p>
-          <p>Orbital Period: {data.orbital_period}</p>
-          <p>Gravity: {data.gravity}</p>
-          <h2>Films:</h2>
-          <ul>
+          <h1 className={styles.title}>{data.name}</h1>
+          <div className={styles.miniInfo}>
+            <div>
+              <p><span>Population:</span>{data.population}</p>
+              <p><span>Climate:</span>{data.climate}</p>
+              <p><span>Terrain:</span>{data.terrain}</p>
+              <p><span>Surface Water:</span>{data.surface_water}</p>
+            </div>
+            <div>
+              <p><span>Diameter:</span>{data.diameter}</p>
+              <p><span>Rotation Period:</span>{data.rotation_period}</p>
+              <p><span>Orbital Period:</span>{data.orbital_period}</p>
+              <p><span>Gravity:</span>{data.gravity}</p>
+            </div>
+          </div>
+          <section>
+            <aside>
+            <h3>Films:</h3>
             {data.films.map((films) => (
-              <li key={films.id}>
-                <Link to={`/films/${films.id}`}>
-                  {films.title}
-                </Link>
-              </li>
+              <ul>
+                <li key={films.id}>
+                  <Link to={`/films/${films.id}`}>
+                    {films.title}
+                  </Link>
+                </li>
+              </ul>
             ))}
-          </ul>
+            </aside>
           { data.residents[0] &&
+          <aside>
+            <h3>Residents:</h3>
             <ul>
-              <h2>Residents:</h2>
             {data.residents.map((residents) => (
               <li key={residents['id']}>
                 <Link to={`/people/${residents.id}`}>
@@ -59,7 +69,9 @@ function PlanetPage() {
                   </Link>
                 </li>
               ))}
-            </ul>}
+            </ul>
+          </aside>}
+          </section>
         </>)
       }
     </div>

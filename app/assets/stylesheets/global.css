@@ -53,8 +53,10 @@ body {
   color: var(--font-color);
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap');
+
 body, input, textarea, button {
-  font: 400 1rem 'Montserrat', sans-serif;
+  font-family: 1rem, 'Merriweather', serif;
 }
 
 button, input[type="submit"] {

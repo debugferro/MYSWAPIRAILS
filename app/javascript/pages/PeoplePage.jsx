@@ -11,73 +11,77 @@ function PeoplePage() {
   let { id } = useParams();
   const { data, isLoading } = useQuery(['people', id], () => getResources(`people/${id}`))
 
-  const mapObject = (object) => {
-    const keys = Object.keys(object)
-    keys.map((key) => {
-      if (typeof key === 'object') {
-        return mapObject(object);
-      }
-      return (<li><Link>{snakeCaseToNormal(key)}: {object[key]}</Link></li>)
-    })
-    return (
-      <ul>
-        {keys}
-      </ul>
-    )
-  }
-
   return (
     <div className={styles.showCard}>
       { isLoading ? <Loader type="ThreeDots" color="#000000" height={80} width={80} /> :
         (<>
-          <h1>{data.name}</h1>
-          <p>{data.birth_year}</p>
-          <p>Eye Color: {data.eye_color}</p>
-          <p>Gender: {data.gender}</p>
-          <p>Hair Color:{data.hair_color}</p>
-          <p>Height:{data.height}</p>
-          <p>Mass:{data.mass}</p>
-          { data.homeworld &&
-            <Link to={`planets/${data.homeworld.id}`}>
-              Homeworld: {data.homeworld.name}
-            </Link> }
-          <p>Skin Color:{data.language}</p>
-          { data.species[0] &&
-            <Link to={`species/${data.species[0].id}`}>
-              Species: {data.species[0].name}
-            </Link> }
-          <h2>Films:</h2>
-          <ul>
-            {data.films.map((films) => (
-              <li key={films.id}>
-                <Link to={`/films/${films.id}`}>
-                  {films.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-          { data.vehicles[0] &&
-          <ul>
-            <h2>Vehicles:</h2>
-            {data.vehicles.map((vehicles) => (
-              <li key={vehicles['id']}>
-                <Link to={`/vehicles/${vehicles.id}`}>
-                  {vehicles.name}
-                </Link>
-              </li>
-            ))}
-          </ul> }
-          { data.starships[0] &&
-          <ul>
-          <h2>Starships:</h2>
-            {data.starships.map((starships) => (
-              <li key={starships['id']}>
-                <Link to={`/starships/${starships.id}`}>
-                  {starships.name}
-                </Link>
-              </li>
-            ))}
-          </ul> }
+          <h1 className={styles.title}>{data.name}</h1>
+          <div className={styles.miniInfo}>
+            <div>
+              <p><span>Birthday:</span>{data.birth_year}</p>
+              <p><span>Eye Color:</span>{data.eye_color}</p>
+              <p><span>Gender:</span>{data.gender}</p>
+            </div>
+            <div>
+              <p><span>Hair Color:</span>{data.hair_color}</p>
+              { data.homeworld &&
+                <p><span>Homeworld:</span>
+                <Link to={`planets/${data.homeworld.id}`}>
+                  {data.homeworld.name}
+                </Link></p> }
+              { data.species[0] &&
+                <p><span>Species:</span>
+                <Link to={`species/${data.species[0].id}`}>
+                  {data.species[0].name}
+                </Link></p> }
+            </div>
+            <div>
+              <p><span>Height:</span>{data.height}</p>
+              <p><span>Mass:</span>{data.mass}</p>
+              <p><span>Skin Color:</span>{data.skin_color}</p>
+              <p><span>Language:</span>{data.language ? data.language : 'unknown'}</p>
+            </div>
+          </div>
+          <section>
+            <aside>
+              <h3>Films:</h3>
+              <ul>
+                {data.films.map((films) => (
+                  <li key={films.id}>
+                    <Link to={`/films/${films.id}`}>
+                      {films.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </aside>
+            { data.vehicles[0] &&
+            <aside>
+              <h3>Vehicles:</h3>
+              <ul>
+              {data.vehicles.map((vehicles) => (
+                <li key={vehicles['id']}>
+                  <Link to={`/vehicles/${vehicles.id}`}>
+                    {vehicles.name}
+                  </Link>
+                </li>
+              ))}
+              </ul>
+            </aside> }
+            { data.starships[0] &&
+            <aside>
+              <h3>Starships:</h3>
+              <ul>
+                {data.starships.map((starships) => (
+                <li key={starships['id']}>
+                  <Link to={`/starships/${starships.id}`}>
+                    {starships.name}
+                  </Link>
+                </li>
+              ))}
+              </ul>
+            </aside> }
+        </section>
         </>)
       }
     </div>
