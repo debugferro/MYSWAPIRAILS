@@ -26,7 +26,7 @@
 }
 
 .content > div > a > h1 {
-  text-shadow: 3px 1px 0 var(--yellow);
+  text-shadow: 3px 1px 0 var(--yellow), -5px -2px 0 var(--yellow), 3px -2px 0 var(--yellow), -5px 1px 0 var(--yellow);
   text-transform: uppercase;
   letter-spacing: 5.9px;
   font-family: 'Star Jedi';

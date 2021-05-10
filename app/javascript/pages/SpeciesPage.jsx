@@ -14,35 +14,49 @@ function SpeciesPage() {
     <div className={styles.showCard}>
       { isLoading ? <Loader type="ThreeDots" color="#000000" height={80} width={80} /> :
         (<>
-          <h1>{data.name}</h1>
-          <p>{data.classification}</p>
-          <p>Average Height: {data.average_height}</p>
-          <p>Avergae Lifespan: {data.average_lifespan}</p>
-          <p>Eye Colors:{data.eye_colors}</p>
-          <p>Hair Colors:{data.eye_colors}</p>
-          <p>Skin Colors:{data.skin_colors}</p>
-          <p>Language:{data.language}</p>
-          { data.homeworld && <p>Homeworld: {data.homeworld}</p> }
-          <p>Films:</p>
-          <ul>
-            {data.films.map((films) => (
-              <li key={films.id}>
-                <Link to={`/films/${films.id}`}>
-                  {films.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <p>People:</p>
-          <ul>
-            {data.people.map((people) => (
-              <li key={people['id']}>
-                <Link to={`/people/${people.id}`}>
-                  {people.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <h1 className={styles.title}>{data.name}</h1>
+          <div className={styles.miniInfo}>
+            <div>
+              <p><span>Classification:</span>{data.classification}</p>
+              <p><span>Average Height:</span>{data.average_height}</p>
+              <p><span>Avergae Lifespan:</span>{data.average_lifespan}</p>
+            </div>
+            <div>
+              <p><span>Eye Colors:</span>{data.eye_colors}</p>
+              <p><span>Hair Colors:</span>{data.eye_colors}</p>
+              <p><span>Skin Colors:</span>{data.skin_colors}</p>
+            </div>
+            <div>
+              <p><span>Language:{data.language}</span></p>
+              {data.homeworld && <p><span>Homeworld:</span>{data.homeworld}</p> }
+            </div>
+          </div>
+          <section>
+            <aside>
+              <h3>Films:</h3>
+              {data.films.map((films) => (
+                <ul>
+                  <li key={films.id}>
+                    <Link to={`/films/${films.id}`}>
+                      {films.title}
+                    </Link>
+                  </li>
+                </ul>
+              ))}
+            </aside>
+            <aside>
+              <h3>People:</h3>
+              <ul>
+                {data.people.map((people) => (
+                  <li key={people['id']}>
+                    <Link to={`/people/${people.id}`}>
+                      {people.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </aside>
+        </section>
         </>)
       }
     </div>

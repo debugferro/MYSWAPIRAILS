@@ -27,51 +27,65 @@ function FilmPage() {
       <div className={styles.showCard}>
         {isLoading ? <Loader type="ThreeDots" color="#000000" height={80} width={80} /> :
           (<>
-            <h1>{data.title}</h1>
-            <span>{data.release_date}</span>
-            <span>Producer: {data.producer}</span>
-            <span>Director: {data.director}</span>
+            <div className={styles.subInfo}>
+              <h1>{data.title}</h1>
+            <aside>
+              <span>{data.release_date}</span>
+              <span>Producer: {data.producer}</span>
+              <span>Director: {data.director}</span>
+            </aside>
+            </div>
             <p>{data.opening_crawl}</p>
-            <p>Species:</p>
-            <ul>
-              {data.species.map((species) => (
-                <li key={species.id}>
-                  <Link to={`/species/${species.id}`}>
-                    {species.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <p>Planets:</p>
-            <ul>
-              {data.planets.map((planets) => (
-                <li key={planets['id']}>
-                  <Link to={`/planets/${planets.id}`}>
-                    {planets.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <p>Starships:</p>
-            <ul>
-              {data.starships.map((starships) => (
-                <li key={starships.id}>
-                  <Link to={`/starships/${starships.id}`}>
-                    {starships.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <p>Vehicles:</p>
-            <ul>
-              {data.vehicles.map((vehicles) => (
-                <li key={vehicles.id}>
-                  <Link to={`/vehicles/${vehicles.id}`}>
-                    {vehicles.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <section>
+              <aside>
+                <h3>Species:</h3>
+                <ul>
+                  {data.species.map((species) => (
+                    <li key={species.id}>
+                      <Link to={`/species/${species.id}`}>
+                        {species.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </aside>
+              <aside>
+                <h3>Planets:</h3>
+                <ul>
+                  {data.planets.map((planets) => (
+                    <li key={planets['id']}>
+                      <Link to={`/planets/${planets.id}`}>
+                        {planets.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </aside>
+              <aside>
+                <h3>Starships:</h3>
+                <ul>
+                  {data.starships.map((starships) => (
+                    <li key={starships.id}>
+                      <Link to={`/starships/${starships.id}`}>
+                        {starships.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </aside>
+              <aside>
+                <h3>Vehicles:</h3>
+                <ul>
+                  {data.vehicles.map((vehicles) => (
+                    <li key={vehicles.id}>
+                      <Link to={`/vehicles/${vehicles.id}`}>
+                        {vehicles.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </aside>
+            </section>
           </>)
         }
       </div>

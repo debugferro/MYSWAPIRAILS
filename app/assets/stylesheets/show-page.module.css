@@ -1,13 +1,16 @@
 .showCard {
-  background-color: #b2b2b2;
+  background-color: #e7e7e7;
   margin: 0 auto;
   margin-top: 5rem;
   width: 50rem;
-  box-shadow: 1px 1px 15px 11px #202020 inset;
-  padding: 2rem;
+  box-shadow: 1px 1px 15px 11px #ffffff6b;
+  border-radius: 2rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  align-items: center;
+  width: 90%;
 }
 
 .showCard > ul {
@@ -17,8 +20,145 @@
   align-content: space-evenly;
 }
 
-.showCard > ul > li {
+/* .showCard > ul > li {
   white-space: nowrap;
   margin-left: 0.1rem;
   margin-right: 0.2rem;
+} */
+
+.subInfo {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-content: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.miniInfo {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-content: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.miniInfo > div {
+  display: flex;
+  flex-direction: column;
+  place-content: space-evenly;
+}
+
+.miniInfo > div > p {
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
+  text-transform: capitalize;
+}
+
+p > span {
+  background-color: black;
+  border-radius: 1rem;
+  padding: 0.3rem;
+  font-size: 0.9rem;
+  box-shadow: 3px -2px 0px #ffe81f;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-right: 0.3rem;
+  color: white;
+}
+
+section {
+  width: 100%;
+}
+
+.subInfo > aside {
+  display: flex;
+  flex-direction: column;
+  direction: normal;
+  font-size: 0.7rem;
+}
+
+@media(max-width: 500px) {
+  .subInfo > aside {
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+  }
+
+  .subInfo {
+    justify-content: center;
+  }
+
+  .miniInfo {
+    justify-content: unset;
+  }
+}
+
+@media(max-width: 350px) {
+  .showCard {
+    width: 100%;
+  }
+}
+
+h3 {
+  overflow: hidden;
+  text-align: center;
+}
+
+aside > ul {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+aside > ul > li {
+  list-style: none;
+  margin: 0.3rem;
+  font-size: 0.9rem;
+  box-shadow: 3px -1px 0px 1px #ffe81f;
+  padding: 0.3rem;
+  font-weight: bolder;
+  border-radius: 0.4rem;
+  /* text-transform: uppercase; */
+  background-color: #000000;
+  color: white;
+  transition: 0.6s;
+}
+
+aside > ul > li:hover {
+  transform: scale(1.1);
+  box-shadow: 3px -1px 0px 1px #001fff;
+}
+
+.title {
+  width: 100%;
+  text-align: center;
+}
+
+.title:before, .title:after, h3:before,
+h3:after {
+  background-color: #000;
+  content: "";
+  display: inline-block;
+  height: 1px;
+  position: relative;
+  vertical-align: middle;
+  width: 50%;
+}
+
+.title:before, h3:before {
+  right: 0.5em;
+  margin-left: -50%;
+}
+
+.title:after, h3:after {
+  left: 0.5em;
+  margin-right: -50%;
+}
+
+h3 {
+  margin-top: 1rem;
 }

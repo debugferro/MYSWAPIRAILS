@@ -30,38 +30,52 @@ function VehiclePage() {
     <div className={styles.showCard}>
       { isLoading ? <Loader type="ThreeDots" color="#000000" height={80} width={80} /> :
         (<>
-          <h1>{data.name}</h1>
-          <p>{data.model}</p>
-          <p>Vehicle Class: {data.vehicle_class}</p>
-          <p>Cargo Capacity: {data.cargo_capacity}</p>
-          <p>Max. Atmosphering Speed: {data.max_atmosphering_speed}</p>
-          <p>Manufacturer: {data.manufacturer}</p>
-          <p>Num. Passengers: {data.passengers}</p>
-          <p>Consumables: {data.consumables}</p>
-          <p>Length: {data.length}</p>
-          <p>Cost: {data.cost_in_credits}</p>
-          <p>Min. Crew: {data.crew}</p>
-          <h2>Films:</h2>
-          <ul>
-            {data.films.map((films) => (
-              <li key={films.id}>
-                <Link to={`/films/${films.id}`}>
-                  {films.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-          { data.pilots[0] &&
-            <ul>
-              <h2>Pilots:</h2>
-            {data.pilots.map((pilots) => (
-              <li key={pilots['id']}>
-                <Link to={`/people/${pilots.id}`}>
-                  {pilots.name}
-                  </Link>
-                </li>
+          <h1 className={styles.title}>{data.name}</h1>
+          <div className={styles.miniInfo}>
+            <div>
+              <p><span>Model:</span>{data.model}</p>
+              <p><span>Vehicle Class:</span>{data.vehicle_class}</p>
+              <p><span>Cargo Capacity:</span>{data.cargo_capacity}</p>
+            </div>
+            <div>
+              <p><span>Max. Atmosphering Speed:</span>{data.max_atmosphering_speed}</p>
+              <p><span>Manufacturer:</span>{data.manufacturer}</p>
+              <p><span>Num. Passengers:</span>{data.passengers}</p>
+              <p><span>Consumables:</span>{data.consumables}</p>
+            </div>
+            <div>
+              <p><span>Length:</span>{data.length}</p>
+              <p><span>Cost:</span>{data.cost_in_credits}</p>
+              <p><span>Min. Crew:</span>{data.crew}</p>
+            </div>
+          </div>
+          <section>
+            <aside>
+              <h3>Films:</h3>
+              {data.films.map((films) => (
+                <ul>
+                  <li key={films.id}>
+                    <Link to={`/films/${films.id}`}>
+                      {films.title}
+                    </Link>
+                  </li>
+                </ul>
               ))}
-            </ul>}
+            </aside>
+            <aside>
+              <h3>Pilots:</h3>
+              {data.pilots[0] &&
+                <ul>
+                  {data.pilots.map((pilots) => (
+                    <li key={pilots['id']}>
+                      <Link to={`/people/${pilots.id}`}>
+                        {pilots.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>}
+            </aside>
+          </section>
         </>)
       }
     </div>
