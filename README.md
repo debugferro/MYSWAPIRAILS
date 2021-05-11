@@ -8,6 +8,9 @@ Execute:
 
     $ bundle install
     $ yarn install
+    $ rails webpacker:install && rails webpacker:install:react
+
+**ATENÇÃO: SE PERGUNTADO, NÃO SOBRESCREVER ARQUIVOS EXISTENTES.**
     
 Caso queira popular/atualizar a aplicação com dados da SWAPI, execute a rake task:
 
@@ -16,6 +19,9 @@ Caso queira popular/atualizar a aplicação com dados da SWAPI, execute a rake t
 Para executar o servidor:
 
     $ rails s
+    
+E em um segundo terminal execute:
+
     $ ./bin/webpack-dev-server
 
 
