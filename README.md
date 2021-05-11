@@ -10,7 +10,7 @@ Execute:
     $ yarn install
     $ rails webpacker:install && rails webpacker:install:react
 
-**ATENÇÃO: SE PERGUNTADO, NÃO SOBRESCREVER ARQUIVOS EXISTENTES.**
+**ATENÇÃO: SE PERGUNTADO, NÃO SOBRESCREVA ARQUIVOS EXISTENTES EM CONFLITO.**
     
 Caso queira popular/atualizar a aplicação com dados da SWAPI, execute a rake task:
 
